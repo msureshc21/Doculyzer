@@ -1,0 +1,189 @@
+.fact-entry {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  backdrop-filter: blur(10px);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fact-entry-header {
+  margin-bottom: 2rem;
+}
+
+.fact-entry-header h2 {
+  margin: 0 0 0.5rem 0;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.fact-entry-header p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.facts-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.fact-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fact-input-group label {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.field-description {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+.fact-input {
+  padding: 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.fact-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.fact-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.field-examples {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+.fact-entry-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.save-button {
+  padding: 0.75rem 2rem;
+  background: rgba(76, 175, 80, 0.3);
+  border: 2px solid rgba(76, 175, 80, 0.5);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.save-button:hover:not(:disabled) {
+  background: rgba(76, 175, 80, 0.4);
+  transform: translateY(-2px);
+}
+
+.save-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.skip-button {
+  padding: 0.75rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.skip-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.skip-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.all-facts-present {
+  text-align: center;
+  padding: 2rem;
+}
+
+.all-facts-present h3 {
+  color: #a5d6a7;
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.all-facts-present p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.continue-button {
+  padding: 0.75rem 2rem;
+  background: rgba(76, 175, 80, 0.3);
+  border: 2px solid rgba(76, 175, 80, 0.5);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.continue-button:hover {
+  background: rgba(76, 175, 80, 0.4);
+  transform: translateY(-2px);
+}
+
+.loading {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.message.success {
+  background: rgba(76, 175, 80, 0.3);
+  color: #a5d6a7;
+  border: 1px solid rgba(76, 175, 80, 0.5);
+}
+
+.message.error {
+  background: rgba(244, 67, 54, 0.3);
+  color: #ef9a9a;
+  border: 1px solid rgba(244, 67, 54, 0.5);
+}
+
