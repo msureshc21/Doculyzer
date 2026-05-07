@@ -68,8 +68,10 @@ curl -X POST "http://localhost:8000/api/v1/autofill/autofill" \
 ### Step 6: View Frontend
 
 Open http://localhost:5173 in your browser to see:
-- Current frontend UI
-- Backend connection status
+- **Upload & Fill**: unified upload → analysis → suggested matches → fill preview flow
+- **Documents**: list uploaded documents
+- **Company Facts**: view canonical facts and history
+- Backend connection status indicator
 
 ## Testing Endpoints
 
@@ -99,14 +101,10 @@ curl -X POST "http://localhost:8000/api/v1/autofill/detect-fields" \
 The frontend is available at http://localhost:5173
 
 Current features:
-- Backend health status indicator
-- Welcome message
-
-**TODO:** Add UI components for:
-- Document upload
-- Fact viewing
-- Auto-fill interface
-- Explanation display
+- Unified **Upload & Fill** workflow
+- Documents list
+- Canonical company facts view
+- Manual fact entry for missing facts (when needed)
 
 ## Troubleshooting
 

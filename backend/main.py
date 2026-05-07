@@ -3,7 +3,7 @@ FastAPI application entry point for AI Paperwork Co-pilot backend.
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.v1 import health, documents, facts, autofill, unified_workflow, unified_workflow
+from app.api.v1 import health, documents, facts, autofill, unified_workflow
 from app.core.logging_config import setup_logging
 
 # Setup logging

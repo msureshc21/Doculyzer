@@ -1,13 +1,20 @@
-# AI Paperwork Co-pilot
+# AI Paperwork Co-pilot (Doculyzer)
 
-A full-stack application for AI-powered paperwork assistance.
+An AI-powered paperwork co-pilot that builds a **persistent, explainable Company Memory Graph** to extract, reason over, and auto-fill business documents with a **human-in-the-loop** review flow.
 
 ## Tech Stack
 
 - **Frontend**: React + TypeScript (Vite)
 - **Backend**: FastAPI (Python)
-- **Database**: PostgreSQL
+- **Database**: SQLite by default for local dev (PostgreSQL supported via `DATABASE_URL`)
 - **File Storage**: Local filesystem abstraction
+
+## What It Does Today
+
+- **Unified workflow UI**: Upload a PDF → analyze it → propose field matches → generate an explainable fill plan.
+- **Company Memory Graph**: Canonical facts (`company_facts`) backed by raw extractions (`extracted_fields`) and a full audit trail (`fact_history`).
+- **Explainable autofill**: Detect PDF form fields, match to facts, fill a preview PDF, and return per-field explanations (source + reason + confidence).
+- **ML-powered analysis (optional)**: PyTorch + Transformers integration with lazy loading and heuristic fallback.
 
 ## Project Structure
 
@@ -70,13 +77,18 @@ ProjectParaLegal/
    ```bash
    cp .env.example .env
    ```
-   Edit `.env` and update the database URL and other settings as needed.
+   Edit `.env` if you want to override defaults (optional for local dev).
 
-6. **Set up PostgreSQL database:**
+6. **Database**
+
+   By default, the backend uses **SQLite** (no setup required):
+   - `DATABASE_URL=sqlite:///./paperwork_copilot.db`
+
+   To use **PostgreSQL**, set `DATABASE_URL` in `backend/.env` (example):
+
    ```bash
-   createdb paperwork_copilot
+   DATABASE_URL=postgresql+psycopg2://postgres:postgres@localhost:5432/paperwork_copilot
    ```
-   Or use your preferred PostgreSQL client to create the database.
 
 7. **Run the development server:**
    ```bash
@@ -112,6 +124,14 @@ ProjectParaLegal/
 
    The frontend will be available at `http://localhost:5173`
 
+## Demo / How to Use
+
+1. Start backend and frontend (see above).
+2. Open the UI at `http://localhost:5173`.
+3. Use **Upload & Fill** to upload a PDF and walk through the analysis + suggested fill plan.
+4. Use **Company Facts** to review canonical facts and their sources/history.
+5. Use `http://localhost:8000/docs` for interactive API exploration.
+
 ## Development
 
 ### Backend Development
@@ -141,14 +161,12 @@ ProjectParaLegal/
 
 - `VITE_API_BASE_URL`: Backend API URL (default: `http://localhost:8000`)
 
-## Next Steps
+## Known Gaps / Next Improvements
 
-- [ ] Set up database models and migrations
-- [ ] Implement authentication/authorization
-- [ ] Add file upload endpoints
-- [ ] Integrate AI processing capabilities
-- [ ] Add error handling and logging
-- [ ] Set up testing framework
+- **OCR & robust text extraction**: current PDF text extraction is minimal; add OCR and better parsing/caching.
+- **Checkboxes/radio buttons**: extend field detection + filling for non-text widgets.
+- **Stronger context-aware matching**: reduce incorrect fills (e.g., previous employer vs current employer) with better document understanding and UI confirmation.
+- **Migrations + auth**: add Alembic migrations and user accounts for multi-user workflows.
 
 ## License
 
