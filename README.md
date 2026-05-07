@@ -124,6 +124,16 @@ ProjectParaLegal/
 
    The frontend will be available at `http://localhost:5173`
 
+## Docker (recommended for portfolio demo)
+
+From the repo root:
+
+```bash
+docker compose up --build
+```
+
+See `DOCKER.md` for stop/reset commands.
+
 ## Demo / How to Use
 
 1. Start backend and frontend (see above).

@@ -8,7 +8,9 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        // Allows running via docker-compose where the backend is a different hostname.
+        // Defaults to local dev backend.
+        target: process.env.VITE_BACKEND_URL ?? 'http://localhost:8000',
         changeOrigin: true,
       },
     },

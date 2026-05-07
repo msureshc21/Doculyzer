@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      # Persist DB and uploads inside the shared named volume
+      DATABASE_URL: "sqlite:////data/paperwork_copilot.db"
+      UPLOAD_DIR: "/data/uploads"
+      # CORS: allow frontend container origin (vite dev server)
+      # Note: backend currently hardcodes CORS; we keep this for future config.
+    volumes:
+      - backend_data:/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      # Used by vite.config.ts to proxy /api -> backend service
+      VITE_BACKEND_URL: "http://backend:8000"
+    depends_on:
+      - backend
+
+volumes:
+  backend_data:
+

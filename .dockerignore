@@ -1,0 +1,23 @@
+.git
+.DS_Store
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/venv/
+**/.venv/
+
+# Node
+**/node_modules/
+**/dist/
+**/dist-ssr/
+
+# Local data
+**/uploads/
+**/test_uploads/
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+
